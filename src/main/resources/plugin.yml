@@ -2,3 +2,8 @@ name: MyCustomBow
 version: '${project.version}'
 main: fr.naos.mycustombow.MyCustomBow
 api-version: 1.16
+commands:
+    mycustombow:
+        description: "MyCustomBow command"
+        permission: mycustombow.use
+        permission-message: "&cYou don't have the permission to use this command."
