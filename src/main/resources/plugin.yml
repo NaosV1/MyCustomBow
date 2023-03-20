@@ -7,3 +7,4 @@ commands:
         description: "MyCustomBow command"
         permission: mycustombow.use
         permission-message: "&cYou don't have the permission to use this command."
+        aliases: ["bow"]

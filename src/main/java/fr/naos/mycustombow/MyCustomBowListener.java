@@ -13,6 +13,7 @@ public class MyCustomBowListener implements Listener {
     private void onClick(InventoryClickEvent event) {
         Player player = (Player) event.getWhoClicked();
         Inventory inv = event.getClickedInventory();
+        if (inv == null) return;
         if (event.getWhoClicked() instanceof Player && inv.getHolder() instanceof MenuHolder) {
             event.setCancelled(true);
             if (event.getCurrentItem() == null || event.getCurrentItem().getType() == Material.AIR) return;
