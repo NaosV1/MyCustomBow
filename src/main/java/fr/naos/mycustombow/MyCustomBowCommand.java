@@ -12,7 +12,6 @@ import static fr.naos.mycustombow.cData.*;
 public class MyCustomBowCommand implements CommandExecutor {
     @Override
     public boolean onCommand(CommandSender sender, Command command, String s, String[] args) {
-        if (!command.getName().equalsIgnoreCase("mycustombow") || !command.getName().equalsIgnoreCase("bow")) return false;
         if (!(sender instanceof Player) && args.length == 0) sender.sendMessage(not_player);
         Player player = (Player) sender;
         if (args.length == 0) bowMenu(player);
