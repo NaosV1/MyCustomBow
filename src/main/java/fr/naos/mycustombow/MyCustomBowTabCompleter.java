@@ -17,6 +17,9 @@ public class MyCustomBowTabCompleter implements TabCompleter {
             completions.add("lightning");
             completions.add("tnt");
             completions.add("switch");
+            completions.add("gravity");
+            completions.add("snowball");
+            completions.add("teleport");
         }
         return completions;
     }

@@ -30,6 +30,9 @@ public class MyCustomBowCommand implements CommandExecutor {
                         } else if (args[2].equalsIgnoreCase("tnt")) {
                             Util.giveBow(target, "tnt");
                             player.sendMessage(bow_gived.replace("%bow%", tnt_bow_name));
+                        } else if (args[2].equalsIgnoreCase("gravity")) {
+                            Util.giveBow(target, "gravity");
+                            player.sendMessage(bow_gived.replace("%bow%", gravity_bow_name));
                         } else if (args[2].equalsIgnoreCase("switch")) {
                             Util.giveBow(target, "switch");
                             player.sendMessage(bow_gived.replace("%bow%", switch_name));
@@ -56,8 +59,11 @@ public class MyCustomBowCommand implements CommandExecutor {
     private static void bowMenuItem(Inventory inventory) {
 
         inventory.setItem(10, ItemManage.createItem(false, Material.FIRE_CHARGE, fireball_bow_name, 1, " ", fireball_bow_lore, " "));
+        inventory.setItem(11, ItemManage.createItem(false, Material.SNOWBALL, snowball_bow_name, 1, " ", snowball_bow_lore, " "));
         inventory.setItem(12, ItemManage.createItem(false, Material.FIREWORK_ROCKET, lightning_bow_name, 1, " ", lightning_bow_lore, " "));
+        inventory.setItem(13, ItemManage.createItem(false, Material.FEATHER, gravity_bow_name, 1, " ", gravity_bow_lore, " "));
         inventory.setItem(14, ItemManage.createItem(false, Material.TNT, tnt_bow_name, 1, " ", tnt_bow_lore, " "));
+        inventory.setItem(15, ItemManage.createItem(false, Material.ENDER_PEARL, teleport_bow_name, 1, " ", teleport_bow_lore, " "));
         inventory.setItem(16, ItemManage.createItem(false, Material.ENDER_EYE, switch_name, 1, " ", switch_lore, " "));
         for (int i = 0; i < inventory.getSize(); i++) {
             if (inventory.getItem(i) == null) {

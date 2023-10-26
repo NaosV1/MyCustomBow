@@ -48,6 +48,30 @@ public class Util {
             switchBowMeta.getPersistentDataContainer().set(new NamespacedKey(MyCustomBow.getPlugin(MyCustomBow.class), "bow_type"), PersistentDataType.STRING, "switch");
             switchBow.setItemMeta(switchBowMeta);
             player.getInventory().addItem(switchBow);
+        } else if (bow.equalsIgnoreCase("gravity")) {
+            ItemStack gravityBow = new ItemStack(Material.BOW);
+            ItemMeta gravityBowMeta = gravityBow.getItemMeta();
+            gravityBowMeta.setDisplayName(gravity_bow_name);
+            gravityBowMeta.setLore(Collections.singletonList(gravity_bow_lore));
+            gravityBowMeta.getPersistentDataContainer().set(new NamespacedKey(MyCustomBow.getPlugin(MyCustomBow.class), "bow_type"), PersistentDataType.STRING, "gravity");
+            gravityBow.setItemMeta(gravityBowMeta);
+            player.getInventory().addItem(gravityBow);
+        } else if (bow.equalsIgnoreCase("snowball")) {
+            ItemStack snowballBow = new ItemStack(Material.BOW);
+            ItemMeta snowballBowMeta = snowballBow.getItemMeta();
+            snowballBowMeta.setDisplayName(snowball_bow_name);
+            snowballBowMeta.setLore(Collections.singletonList(snowball_bow_lore));
+            snowballBowMeta.getPersistentDataContainer().set(new NamespacedKey(MyCustomBow.getPlugin(MyCustomBow.class), "bow_type"), PersistentDataType.STRING, "snowball");
+            snowballBow.setItemMeta(snowballBowMeta);
+            player.getInventory().addItem(snowballBow);
+        } else if (bow.equalsIgnoreCase("teleport")) {
+            ItemStack teleportBow = new ItemStack(Material.BOW);
+            ItemMeta teleportBowMeta = teleportBow.getItemMeta();
+            teleportBowMeta.setDisplayName(teleport_bow_name);
+            teleportBowMeta.setLore(Collections.singletonList(teleport_bow_lore));
+            teleportBowMeta.getPersistentDataContainer().set(new NamespacedKey(MyCustomBow.getPlugin(MyCustomBow.class), "bow_type"), PersistentDataType.STRING, "teleport");
+            teleportBow.setItemMeta(teleportBowMeta);
+            player.getInventory().addItem(teleportBow);
         }
     }
 }
