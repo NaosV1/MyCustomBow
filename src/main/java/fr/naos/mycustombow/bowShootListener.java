@@ -8,7 +8,9 @@ import org.bukkit.event.Listener;
 import org.bukkit.event.entity.EntityShootBowEvent;
 import org.bukkit.event.entity.ProjectileHitEvent;
 import org.bukkit.inventory.ItemStack;
+import org.bukkit.inventory.meta.PotionMeta;
 import org.bukkit.persistence.PersistentDataType;
+import org.bukkit.potion.PotionEffectType;
 
 import static fr.naos.mycustombow.cData.gravity_bow_noperm;
 
@@ -24,6 +26,8 @@ public class bowShootListener implements Listener {
             event.getEntity().launchProjectile(Fireball.class);
         } else if (bow.getItemMeta().getPersistentDataContainer().getOrDefault(new NamespacedKey(MyCustomBow.getPlugin(MyCustomBow.class), "bow_type"), PersistentDataType.STRING, "-1").equals("lightning")) {
             arrow.getPersistentDataContainer().set(new NamespacedKey(MyCustomBow.getPlugin(MyCustomBow.class), "bow_type"), PersistentDataType.STRING, "lightning");
+        } else if (bow.getItemMeta().getPersistentDataContainer().getOrDefault(new NamespacedKey(MyCustomBow.getPlugin(MyCustomBow.class), "bow_type"), PersistentDataType.STRING, "-1").equals("dragon")) {
+            arrow.getPersistentDataContainer().set(new NamespacedKey(MyCustomBow.getPlugin(MyCustomBow.class), "bow_type"), PersistentDataType.STRING, "dragon");
         } else if (bow.getItemMeta().getPersistentDataContainer().getOrDefault(new NamespacedKey(MyCustomBow.getPlugin(MyCustomBow.class), "bow_type"), PersistentDataType.STRING, "-1").equals("tnt")) {
             arrow.getPersistentDataContainer().set(new NamespacedKey(MyCustomBow.getPlugin(MyCustomBow.class), "bow_type"), PersistentDataType.STRING, "tnt");
         } else if (bow.getItemMeta().getPersistentDataContainer().getOrDefault(new NamespacedKey(MyCustomBow.getPlugin(MyCustomBow.class), "bow_type"), PersistentDataType.STRING, "-1").equals("switch")) {
@@ -50,7 +54,18 @@ public class bowShootListener implements Listener {
             event.getEntity().getWorld().strikeLightning(event.getEntity().getLocation());
         } else if (event.getEntity().getPersistentDataContainer().getOrDefault(new NamespacedKey(MyCustomBow.getPlugin(MyCustomBow.class), "bow_type"), PersistentDataType.STRING, "-1").equals("tnt")) {
             event.getEntity().getWorld().createExplosion(event.getEntity().getLocation(), 4);
-        }
+        } else if (event.getEntity().getPersistentDataContainer().getOrDefault(new NamespacedKey(MyCustomBow.getPlugin(MyCustomBow.class), "bow_type"), PersistentDataType.STRING, "-1").equals("dragon")) {
+            event.getEntity().getWorld().spawnParticle(org.bukkit.Particle.DRAGON_BREATH, event.getEntity().getLocation(), 100);
+            event.getEntity().remove();
+            ItemStack lingeringPotion = new ItemStack(org.bukkit.Material.LINGERING_POTION);
+            PotionMeta meta = (PotionMeta) lingeringPotion.getItemMeta();
+            meta.addCustomEffect(new org.bukkit.potion.PotionEffect(PotionEffectType.HARM, 10, 2), true);
+            lingeringPotion.setItemMeta(meta);
+
+            ThrownPotion potion = event.getEntity().getWorld().spawn(event.getEntity().getLocation(), ThrownPotion.class);
+            potion.setItem(lingeringPotion);
+
+        } else
         if (event.getHitEntity() != null) {
             Entity shooter = (Entity) event.getEntity().getShooter();
             Entity victim = event.getHitEntity();

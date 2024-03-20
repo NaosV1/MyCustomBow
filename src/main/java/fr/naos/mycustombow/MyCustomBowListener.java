@@ -24,6 +24,7 @@ public class MyCustomBowListener implements Listener {
             else if (event.getCurrentItem().getType() == Material.FEATHER) Util.giveBow(player, "gravity");
             else if (event.getCurrentItem().getType() == Material.SNOWBALL) Util.giveBow(player, "snowball");
             else if (event.getCurrentItem().getType() == Material.ENDER_PEARL) Util.giveBow(player, "teleport");
+            else if (event.getCurrentItem().getType() == Material.DRAGON_BREATH) Util.giveBow(player, "dragon");
         }
     }
 

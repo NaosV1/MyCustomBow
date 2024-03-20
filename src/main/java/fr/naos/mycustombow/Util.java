@@ -72,6 +72,14 @@ public class Util {
             teleportBowMeta.getPersistentDataContainer().set(new NamespacedKey(MyCustomBow.getPlugin(MyCustomBow.class), "bow_type"), PersistentDataType.STRING, "teleport");
             teleportBow.setItemMeta(teleportBowMeta);
             player.getInventory().addItem(teleportBow);
+        } else if (bow.equalsIgnoreCase("dragon")) {
+            ItemStack dragonBow = new ItemStack(Material.BOW);
+            ItemMeta dragonBowMeta = dragonBow.getItemMeta();
+            dragonBowMeta.setDisplayName(dragon_bow_name);
+            dragonBowMeta.setLore(Collections.singletonList(dragon_bow_lore));
+            dragonBowMeta.getPersistentDataContainer().set(new NamespacedKey(MyCustomBow.getPlugin(MyCustomBow.class), "bow_type"), PersistentDataType.STRING, "dragon");
+            dragonBow.setItemMeta(dragonBowMeta);
+            player.getInventory().addItem(dragonBow);
         }
     }
 }

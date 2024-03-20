@@ -20,6 +20,7 @@ public class MyCustomBowTabCompleter implements TabCompleter {
             completions.add("gravity");
             completions.add("snowball");
             completions.add("teleport");
+            completions.add("dragon");
         }
         return completions;
     }
