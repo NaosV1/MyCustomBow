@@ -36,6 +36,9 @@ public class MyCustomBowCommand implements CommandExecutor {
                         } else if (args[2].equalsIgnoreCase("switch")) {
                             Util.giveBow(target, "switch");
                             player.sendMessage(bow_gived.replace("%bow%", switch_name));
+                        } else if (args[2].equalsIgnoreCase("dragon")) {
+                            Util.giveBow(target, "dragon");
+                            player.sendMessage(bow_gived.replace("%bow%", dragon_bow_name));
                         } else {
                             player.sendMessage(bow_not_found);
                         }
@@ -51,7 +54,7 @@ public class MyCustomBowCommand implements CommandExecutor {
 
 
     public static void bowMenu(Player player) {
-        Inventory inventory = org.bukkit.Bukkit.createInventory(new MenuHolder(), 3 * 9, cData.title_menu);
+        Inventory inventory = org.bukkit.Bukkit.createInventory(new MenuHolder(), 4 * 9, cData.title_menu);
         bowMenuItem(inventory);
         player.openInventory(inventory);
     }
@@ -65,6 +68,7 @@ public class MyCustomBowCommand implements CommandExecutor {
         inventory.setItem(14, ItemManage.createItem(false, Material.TNT, tnt_bow_name, 1, " ", tnt_bow_lore, " "));
         inventory.setItem(15, ItemManage.createItem(false, Material.ENDER_PEARL, teleport_bow_name, 1, " ", teleport_bow_lore, " "));
         inventory.setItem(16, ItemManage.createItem(false, Material.ENDER_EYE, switch_name, 1, " ", switch_lore, " "));
+        inventory.setItem(22, ItemManage.createItem(false, Material.DRAGON_BREATH, dragon_bow_name, 1, " ", dragon_bow_lore, " "));
         for (int i = 0; i < inventory.getSize(); i++) {
             if (inventory.getItem(i) == null) {
                 inventory.setItem(i, ItemManage.createItem(false, Material.GRAY_STAINED_GLASS_PANE, " ", 1));

@@ -28,6 +28,8 @@ public class cData {
     public static String snowball_bow_lore;
     public static String teleport_bow_name;
     public static String teleport_bow_lore;
+    public static String dragon_bow_name;
+    public static String dragon_bow_lore;
 
     public static void load() {
         prefix = ChatColor.translateAlternateColorCodes('&', prefix);
@@ -40,6 +42,8 @@ public class cData {
             fireball_bow_lore = "§f    Cet arc vous permet de lancer des §cboules de feu";
             teleport_bow_name = "§fArc de §5Téléportation";
             teleport_bow_lore = "§f    Cet arc vous permet de vous téléporter";
+            dragon_bow_name = "§fArc du §dDragon";
+            dragon_bow_lore = "§f    Cet arc vous permet de lancer un souffre du dragon";
             gravity_bow_name = "§fArc §9Anti-Gravité";
             gravity_bow_lore = "§f    Cet arc vous permet de faire perdre la gravité à un joueur";
             gravity_bow_noperm = "§cVous n'avez pas la permission d'utiliser cet arc car il est très dangereux ! (mycustombow.gravity)";
@@ -55,7 +59,6 @@ public class cData {
             bow_not_found = "§cL'arc n'a pas été trouvé !";
             bow_gived = "§aVous avez donné §e%bow% §a!";
 
-
         } else {
             no_perm = prefix + " §cYou don't have the permission to use this command !";
             title_menu = "Custom Bows";
@@ -63,6 +66,8 @@ public class cData {
             config_reloaded = "§aThe configuration has been reloaded !";
             teleport_bow_name = "§5Teleportation §fBow";
             teleport_bow_lore = "§f    This bow allows you to §5teleport";
+            dragon_bow_name = "§dDragon §fBow";
+            dragon_bow_lore = "§f    This bow allows you to shoot a §ddragon breath";
             snowball_bow_name = "§bSnow Ball §fBow";
             snowball_bow_lore = "§f    This bow allows you to shoot §bsnow balls";
             fireball_bow_name = "§cFire Ball §fBow";
