@@ -3,3 +3,6 @@ prefix: "&b[&6CustomBow&b]"
 # Available languages: "en", "fr"
 # Want to add a new langage ? Come on our discord server: https://discord.gg/wEjKuhezvr
 lang: "en"
+
+# Set the radius of the explosion when the fireball bow hits
+fireball_bow_explosion: 3

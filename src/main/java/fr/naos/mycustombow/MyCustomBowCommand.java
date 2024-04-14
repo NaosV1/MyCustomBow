@@ -21,26 +21,28 @@ public class MyCustomBowCommand implements CommandExecutor {
                     Player target = player.getServer().getPlayer(args[1]);
                     if (target == null) player.sendMessage(player_not_found);
                     if (args.length >= 3) {
-                        if (args[2].equalsIgnoreCase("fireball")) {
-                            Util.giveBow(target, "fireball");
-                            player.sendMessage(bow_gived.replace("%bow%", fireball_bow_name));
-                        } else if (args[2].equalsIgnoreCase("lightning")) {
-                            Util.giveBow(target, "lightning");
-                            player.sendMessage(bow_gived.replace("%bow%", lightning_bow_name));
-                        } else if (args[2].equalsIgnoreCase("tnt")) {
-                            Util.giveBow(target, "tnt");
-                            player.sendMessage(bow_gived.replace("%bow%", tnt_bow_name));
-                        } else if (args[2].equalsIgnoreCase("gravity")) {
-                            Util.giveBow(target, "gravity");
-                            player.sendMessage(bow_gived.replace("%bow%", gravity_bow_name));
-                        } else if (args[2].equalsIgnoreCase("switch")) {
-                            Util.giveBow(target, "switch");
-                            player.sendMessage(bow_gived.replace("%bow%", switch_name));
-                        } else if (args[2].equalsIgnoreCase("dragon")) {
-                            Util.giveBow(target, "dragon");
-                            player.sendMessage(bow_gived.replace("%bow%", dragon_bow_name));
-                        } else {
-                            player.sendMessage(bow_not_found);
+                        String bow = args[2];
+                        switch (bow) {
+                            case "fireball":
+                                Util.giveBow(target, "fireball");
+                                player.sendMessage(bow_gived.replace("%bow%", fireball_bow_name));
+                            case "lightning":
+                                Util.giveBow(target, "lightning");
+                                player.sendMessage(bow_gived.replace("%bow%", lightning_bow_name));
+                            case "tnt":
+                                Util.giveBow(target, "tnt");
+                                player.sendMessage(bow_gived.replace("%bow%", tnt_bow_name));
+                            case "gravity":
+                                Util.giveBow(target, "gravity");
+                                player.sendMessage(bow_gived.replace("%bow%", gravity_bow_name));
+                            case "switch":
+                                Util.giveBow(target, "switch");
+                                player.sendMessage(bow_gived.replace("%bow%", switch_name));
+                            case "dragon":
+                                Util.giveBow(target, "dragon");
+                                player.sendMessage(bow_gived.replace("%bow%", dragon_bow_name));
+                            default:
+                                player.sendMessage(bow_not_found);
                         }
                     } else {
                         player.sendMessage(bow_not_found);

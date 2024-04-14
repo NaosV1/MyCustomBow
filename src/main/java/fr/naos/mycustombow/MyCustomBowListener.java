@@ -16,15 +16,33 @@ public class MyCustomBowListener implements Listener {
         if (inv == null) return;
         if (event.getWhoClicked() instanceof Player && inv.getHolder() instanceof MenuHolder) {
             event.setCancelled(true);
-            if (event.getCurrentItem() == null || event.getCurrentItem().getType() == Material.AIR) return;
-            else if (event.getCurrentItem().getType() == Material.FIRE_CHARGE) Util.giveBow(player, "fireball");
-            else if (event.getCurrentItem().getType() == Material.FIREWORK_ROCKET) Util.giveBow(player, "lightning");
-            else if (event.getCurrentItem().getType() == Material.TNT) Util.giveBow(player, "tnt");
-            else if (event.getCurrentItem().getType() == Material.ENDER_EYE) Util.giveBow(player, "switch");
-            else if (event.getCurrentItem().getType() == Material.FEATHER) Util.giveBow(player, "gravity");
-            else if (event.getCurrentItem().getType() == Material.SNOWBALL) Util.giveBow(player, "snowball");
-            else if (event.getCurrentItem().getType() == Material.ENDER_PEARL) Util.giveBow(player, "teleport");
-            else if (event.getCurrentItem().getType() == Material.DRAGON_BREATH) Util.giveBow(player, "dragon");
+            Material type = event.getCurrentItem().getType();
+            switch (type) {
+                case FIRE_CHARGE:
+                    Util.giveBow(player, "fireball");
+                    break;
+                case FIREWORK_ROCKET:
+                    Util.giveBow(player, "lightning");
+                    break;
+                case TNT:
+                    Util.giveBow(player, "tnt");
+                    break;
+                case ENDER_EYE:
+                    Util.giveBow(player, "switch");
+                    break;
+                case FEATHER:
+                    Util.giveBow(player, "gravity");
+                    break;
+                case SNOWBALL:
+                    Util.giveBow(player, "snowball");
+                    break;
+                case ENDER_PEARL:
+                    Util.giveBow(player, "teleport");
+                    break;
+                case DRAGON_BREATH:
+                    Util.giveBow(player, "dragon");
+                    break;
+            }
         }
     }
 
